@@ -14,24 +14,60 @@
         compatible = "zmk,keymap";
 
         default_layer {
-// --------------------------
-// | page up|  up   |page down |
-// | left   | down  |  right   |
-// | stop   |jogging| feedhold |
-// | M_PLAY |  0  |  MO(1)  |
-// --------------------------
+// ----------------------------------------
+// | cycle start | Singleblock |  Rewind  |
+// | Jog on/off  | spindle on  |  right   |
+// |     Stop    |     Stop    |  Stop    |
+// |   X_layer   |    Y_layer  |  Z_layer |
+// ----------------------------------------
             bindings = <
-    &kp UP   &kp N8 &kp N9    &kp HOME
-    &kp N4   &kp N5 &kp N6    &kp END
-    &kp N1   &kp N2 &kp N3    &kp DEL
-    &kp C_PP &kp N0 &mo 1     &kp PG_DN
-    &none    &none  &none     &kp INS
+    &kp LA(R)     &kp LA(N) &kp LC(W)   &kp UP_ARROW
+    &kp LC(LA(J)) &kp F5    &kp N6      &kp DOWN_ARROW
+    &kp LA(S)     &kp LA(S) &kp LA(S)   &kp LEFT_ARROW
+    &tog 1        &tog 2    &tog 3      &kp RIGHT_ARROW
+    &none         &none     &none       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp INS PG_UP>;
         };
 
-         nav_layer {
+         X_layer {
+// --------------------------
+// | BT_CLR |  HOME |  PGUP |
+// | _      |  END  |  PGDN |
+// | _      |  _    |  _    |
+// | _      |  _    |  _    |
+// --------------------------
+             bindings = <
+     &bt BT_CLR       &trans          &kp PG_UP &kp UP
+     &out OUT_TOG     &out OUT_USB    &out OUT_BLE &kp DOWN
+     &reset           &trans     &trans    &kp LEFT
+     &bootloader     &trans   &trans       &kp RIGHT
+     &trans     &trans   &trans            &kp INS
+             >;
+
+             sensor-bindings = <&inc_dec_kp A B>;
+         };
+        
+         Y_layer {
+// --------------------------
+// | BT_CLR |  HOME |  PGUP |
+// | _      |  END  |  PGDN |
+// | _      |  _    |  _    |
+// | _      |  _    |  _    |
+// --------------------------
+             bindings = <
+     &bt BT_CLR       &trans          &kp PG_UP &kp UP
+     &out OUT_TOG     &out OUT_USB    &out OUT_BLE &kp DOWN
+     &reset           &trans     &trans    &kp LEFT
+     &bootloader     &trans   &trans       &kp RIGHT
+     &trans     &trans   &trans            &kp INS
+             >;
+
+             sensor-bindings = <&inc_dec_kp A B>;
+         };
+         
+         Z_layer {
 // --------------------------
 // | BT_CLR |  HOME |  PGUP |
 // | _      |  END  |  PGDN |
