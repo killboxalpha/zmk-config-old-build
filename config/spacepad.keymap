@@ -28,61 +28,61 @@
     &none         &none     &none       &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp INS PG_UP>;
+            sensor-bindings = <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
          X_layer {
 // --------------------------
-// | BT_CLR |  HOME |  PGUP |
-// | _      |  END  |  PGDN |
-// | _      |  _    |  _    |
-// | _      |  _    |  _    |
+// |       X+     |      ZeroX    |      X-     |
+// |  Jog on/off  |   Jog con/inc |   stepsize  |
+// |      Stop    |     Stop      |     Stop    |
+// |    Default   |    Y_layer    |   Z_layer   |
 // --------------------------
              bindings = <
-     &bt BT_CLR       &trans          &kp PG_UP &kp UP
-     &out OUT_TOG     &out OUT_USB    &out OUT_BLE &kp DOWN
-     &reset           &trans     &trans    &kp LEFT
-     &bootloader     &trans   &trans       &kp RIGHT
-     &trans     &trans   &trans            &kp INS
+    &kp RIGHT_ARROW     &kp X    &kp LEFT_ARROW   &kp UP_ARROW
+    &kp LC(LA(J))       &kp J    &kp K            &kp DOWN_ARROW
+    &kp LA(S)           &kp LA(S)&kp LA(S)        &kp LEFT_ARROW
+    &tog 0              &tog 2   &tog 3           &kp RIGHT_ARROW
+    &none               &none    &none            &trans
              >;
 
-             sensor-bindings = <&inc_dec_kp A B>;
+             sensor-bindings = <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>;
          };
         
          Y_layer {
 // --------------------------
-// | BT_CLR |  HOME |  PGUP |
-// | _      |  END  |  PGDN |
-// | _      |  _    |  _    |
-// | _      |  _    |  _    |
+// |       Y+     |      ZeroY    |      Y-     |
+// |  Jog on/off  |   Jog con/inc |   stepsize  |
+// |      Stop    |     Stop      |     Stop    |
+// |    X_layer   |    Default    |   Z_layer   |
 // --------------------------
              bindings = <
-     &bt BT_CLR       &trans          &kp PG_UP &kp UP
-     &out OUT_TOG     &out OUT_USB    &out OUT_BLE &kp DOWN
-     &reset           &trans     &trans    &kp LEFT
-     &bootloader     &trans   &trans       &kp RIGHT
-     &trans     &trans   &trans            &kp INS
+    &kp UP_ARROW        &kp Y    &kp DOWN_ARROW   &kp UP_ARROW
+    &kp LC(LA(J))       &kp J    &kp K            &kp DOWN_ARROW
+    &kp LA(S)           &kp LA(S)&kp LA(S)        &kp LEFT_ARROW
+    &tog 1              &tog 0   &tog 3           &kp RIGHT_ARROW
+    &none               &none    &none            &trans
              >;
 
-             sensor-bindings = <&inc_dec_kp A B>;
+             sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW>;
          };
          
          Z_layer {
 // --------------------------
-// | BT_CLR |  HOME |  PGUP |
-// | _      |  END  |  PGDN |
-// | _      |  _    |  _    |
-// | _      |  _    |  _    |
+// |       Z+     |      ZeroZ    |      Z-     |
+// |  Jog on/off  |   Jog con/inc |   stepsize  |
+// |      Stop    |     Stop      |     Stop    |
+// |    X_layer   |    Y_layer    |   Default   |
 // --------------------------
              bindings = <
-     &bt BT_CLR       &trans          &kp PG_UP &kp UP
-     &out OUT_TOG     &out OUT_USB    &out OUT_BLE &kp DOWN
-     &reset           &trans     &trans    &kp LEFT
-     &bootloader     &trans   &trans       &kp RIGHT
-     &trans     &trans   &trans            &kp INS
+    &kp PAGE_DOWN       &kp Z    &kp PAGE_UP      &kp UP_ARROW
+    &kp LC(LA(J))       &kp J    &kp K            &kp DOWN_ARROW
+    &kp LA(S)           &kp LA(S)&kp LA(S)        &kp LEFT_ARROW
+    &tog 1              &tog 2   &tog 0           &kp RIGHT_ARROW
+    &none               &none    &none            &trans
              >;
 
-             sensor-bindings = <&inc_dec_kp A B>;
+             sensor-bindings = <&inc_dec_kp PAGE_UP PAGE_DOWN>;
          };
     };
 };
