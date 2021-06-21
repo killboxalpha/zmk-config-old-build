@@ -40,10 +40,10 @@ jobs:
         run: cat -n build/zephyr/bluemicro840_v1.dts.pre.tmp
       - name: Tidbit Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 tidbit_bluemicro840_v1.uf2
+      - name: Rename zmk.hex
+        run: cp build/zephyr/zmk.uf2 tidbit_bluemicro840_v1.hex
       - name: Archive (Tidbit)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: tidbit_bluemicro840_v1.uf2
+          path: tidbit_bluemicro840_v1.hex
